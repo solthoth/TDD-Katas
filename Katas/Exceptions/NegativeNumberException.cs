@@ -2,7 +2,7 @@
 
 namespace Katas.Exceptions
 {
-    public class NegativeNumberException : Exception
+    public class NegativeNumberException : ArgumentException
     {
         public NegativeNumberException(int[] numbers) : base($"Negatives not allowed: [{numbers.toString()}]")
         {
