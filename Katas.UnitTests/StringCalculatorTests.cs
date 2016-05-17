@@ -70,5 +70,27 @@ namespace Katas.Tests
         {
             Assert.Throws<NegativeNumberException>(() => TestStringCalculator(input, 0), errorMessage);
         }
+
+        [Test]
+        [TestCase("2,1001",2)]
+        public void It_Should_Ignore_Values_1000_And_Higher_When_Add(string input, int result)
+        {
+            TestStringCalculator(input, result);
+        }
+
+        [Test]
+        [TestCase("//[***]\n1***2***3", 6)]
+        public void It_Should_Allow_For_Any_Length_Delimiter_When_Add(string input, int result)
+        {
+            TestStringCalculator(input, result);
+        }
+
+        [Test]
+        [TestCase("//[*][%]\n1*2%3", 6)]
+        [TestCase("//[***][%]\n1***2%3", 6)]
+        public void It_Should_Allow_For_Multiple_Delimiters_When_Add(string input, int result)
+        {
+            TestStringCalculator(input, result);
+        }
     }
 }
